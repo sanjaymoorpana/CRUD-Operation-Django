@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<center>
+    <title>Add Record</title>
+</head>
+<body>
+    <h2>Add Record</h2>
+    <form action="{% url 'add' %}" method="POST" name="add">
+        {% csrf_token %}
+        {{form.as_p}}
+        
+        <input name="submit" type="submit" value="Add Record">
+        <br>
+        <a href="{% url 'home' %}">Homepage</a>
+    </form>
+    
+</body>
+</center>
+</html>

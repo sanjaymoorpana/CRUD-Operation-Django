@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<center>
+<h2>Welcome to CRUD Operation</h2>
+<p>Employee Records</p>
+<body>
+
+    <form action="{% url 'home' % }" name='home' method="POST">
+        {% csrf_token %}
+        <table border="1">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Addresss</th>
+                <th>Contact No.</th>
+            </tr>
+
+            {% for emp in employees %}
+            <tr>
+                <td>{{emp.first_name}}</td>
+                <td>{{emp.last_name}}</td>
+                <td>{{emp.email}}</td>
+                <td>{{emp.address}}</td>
+                <td>{{emp.contact}}</td>
+                <td><a href="{% url 'edit' emp.id %}">Edit</a></td>
+                <td><a href="{% url 'delete' emp.id %}">Delete</a></td>
+            </tr>
+            {% endfor %}
+            
+            
+                <td colspan="5" align="center">
+                    <a href="{% url 'add' %}">Add Record</a>
+                </td>
+            
+
+        </table>
+    </form>
+
+</body>
+</center>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<h2>Edit Record</h2>
+<body>
+    <form action="{% url 'edit' employee.id %}" method="POST" name="edit">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button name="submit">Update Record</button>
+    </form>
+</body>
+</html>
